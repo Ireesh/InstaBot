@@ -1,5 +1,6 @@
 package com.geekbrains.homework_spring_1;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -8,6 +9,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Component
+@Scope("singleton")
 public class ProductRepository {
     private List<Product> products;
 

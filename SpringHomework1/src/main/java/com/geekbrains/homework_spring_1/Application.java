@@ -8,7 +8,11 @@ public class Application {
 
         ProductRepository productRepository = context.getBean("productRepository", ProductRepository.class);
         Cart cart = context.getBean("cart", Cart.class);
+        Cart cart2 = context.getBean("cart", Cart.class);
         cart.addProduct(productRepository.getProductById(1));
+        cart2.addProduct(productRepository.getProductById(2));
         cart.printAllProducts();
+        cart2.printAllProducts();
+
     }
 }
