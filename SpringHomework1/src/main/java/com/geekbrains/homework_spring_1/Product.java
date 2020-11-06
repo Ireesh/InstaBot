@@ -35,7 +35,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return String.format("Product [ id: %d : %s (%d$) ]", id, productName, price);
+        return String.format("Product %d: %s (%d$)", id, productName, price);
     }
 
 }

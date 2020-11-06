@@ -12,7 +12,7 @@ public class AppConfig {
     }
 
     @Bean
-    public ProductService productService() {
-        return new ProductService();
+    public ProductRepository productRepository() {
+        return new ProductRepository();
     }
 }

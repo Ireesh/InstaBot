@@ -25,5 +25,11 @@ public class Cart {
             }
         }
     }
+
+    public void printAllProducts() {
+        for (Product product : products) {
+            System.out.println(product);
+        }
+    }
 }
 

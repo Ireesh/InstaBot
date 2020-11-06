@@ -6,8 +6,9 @@ public class Application {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        ProductService productService = context.getBean("productService", ProductService.class);
+        ProductRepository productRepository = context.getBean("productRepository", ProductRepository.class);
         Cart cart = context.getBean("cart", Cart.class);
-        productService.printAllProducts();
+        cart.addProduct(productRepository.getProductById(1));
+        cart.printAllProducts();
     }
 }
