@@ -5,6 +5,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
+import java.util.List;
+
 @Configuration
 public class AppConfig {
     @Bean
@@ -16,5 +18,10 @@ public class AppConfig {
     @Bean
     public ProductRepository productRepository() {
         return new ProductRepository();
+    }
+
+    @Bean
+    public ProductService productService() {
+        return new ProductService();
     }
 }

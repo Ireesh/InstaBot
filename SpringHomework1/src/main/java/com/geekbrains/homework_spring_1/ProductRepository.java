@@ -10,7 +10,7 @@ import java.util.List;
 
 @Component
 @Scope("singleton")
-public class ProductRepository {
+public class ProductRepository implements Repository{
     private List<Product> products;
 
     @PostConstruct

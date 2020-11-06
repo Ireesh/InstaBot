@@ -8,15 +8,15 @@ import java.util.List;
 
 @Component
 public class ProductService {
-    private Repository repository;
+    private ProductRepository productRepository;
 
     @Autowired
-    public void setProductRepository(@Qualifier(value = "ProductRepository") Repository repository) {
-        this.repository = repository;
+    public void setProductRepository(@Qualifier(value = "productRepository") ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
-    public void printAllProducts() {
-        List<Product> products = repository.getAllProducts();
+    public void printAllProduct() {
+        List<Product> products = productRepository.getAllProducts();
         for (Product product : products) {
             System.out.println(product);
         }
