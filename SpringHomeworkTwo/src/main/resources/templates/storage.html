@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product storage</title>
+</head>
+<body>
+<h1>List of products:</h1>
+    <table>
+        <thead>
+        <tr>
+            <td>Id</td>
+            <td>Title</td>
+            <td>Cost</td>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="pr : ${products}">
+            <td th:text="${pr.id}"></td>
+            <td th:text="${pr.title}"></td>
+            <td th:text="${pr.cost}"></td>
+        </tr>
+        <tr>
+            <td><a th:href="@{/storage/add}">Добавить продукт</a></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
