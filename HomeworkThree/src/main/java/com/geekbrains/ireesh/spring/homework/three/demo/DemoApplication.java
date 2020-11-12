@@ -9,24 +9,27 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.stream.Collectors;
-
 
 @SpringBootApplication
 public class DemoApplication {
 
     public static void prepareDataForDatabase() {
         SessionFactory factory = new Configuration()
-                .configure("hibernate.cfg.xml")
+                .configure("configs/hibernate.cfg.xml")
                 .buildSessionFactory();
         Session session = null;
 
         try {
-            String sql = Files.lines(Paths.get("query.sql")).collect(Collectors.joining(" "));
-            session = factory.getCurrentSession();
-            session.beginTransaction();
-            session.createNativeQuery(sql).executeUpdate();
-            session.getTransaction().commit();
+            String[] queryList = Files.readString(Paths.get("query.sql")).split(";");
+
+            for (String sql : queryList) {
+                if (!sql.trim().equals("")) {
+                    session = factory.getCurrentSession();
+                    session.beginTransaction();
+                    session.createNativeQuery(sql).executeUpdate();
+                    session.getTransaction().commit();
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -40,6 +43,8 @@ public class DemoApplication {
     public static void main(String[] args) {
         prepareDataForDatabase();
         SpringApplication.run(DemoApplication.class, args);
+        SQLConversation sqlConversation = new SQLConversation();
+        sqlConversation.getProductsList();
     }
 
 }
