@@ -43,8 +43,6 @@ public class DemoApplication {
     public static void main(String[] args) {
         prepareDataForDatabase();
         SpringApplication.run(DemoApplication.class, args);
-        SQLConversation sqlConversation = new SQLConversation();
-        sqlConversation.getProductsList();
     }
 
 }

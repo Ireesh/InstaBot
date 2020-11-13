@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product storage</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Title</td>
+                <td>Price</td>
+            </tr>
+            <tr style="background: #aaa;">
+                <td colspan="4"></td>
+            </tr>
+        </thead>
+        <tbody>
+                <tr th:each = "p : ${products}">
+                    <td th:text = "${p.id}"></td>
+                    <td th:text = "${p.title}"></td>
+                    <td th:text = "${p.cost}"></td>
+                    <td>
+                        <form th:action="@{/product_storage}" method="post">
+                            <input type="hidden" name="id" th:value="${p.id}">
+                            <input type="hidden" name="title" th:value="${p.title}">
+                            <input type="hidden" name="cost" th:value="${p.cost}">
+                            <button type="submit">delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <tr style="background: #aaa;">
+                <td colspan="4"></td>
+            </tr>
+            <tr>
+                <form th:action = "@{/product_storage}" method = "POST">
+                    <td><p>Add new product: </p></td>
+                    <td><input type="text" name="title" placeholder="title"/></td>
+                    <td><input type="text" name="cost" placeholder="cost"/></td>
+                    <td><input type="submit" value="add"></td>
+                </form>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
