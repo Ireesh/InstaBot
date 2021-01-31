@@ -13,52 +13,52 @@ public class OrderBillBuilder implements Builder{
     private Salmon extraSaladSalmon;
 
     @Override
-    public void setRapanas(Rapanas rapanas) {
+    public void addRapanas(Rapanas rapanas) {
         this.rapanas = rapanas;
     }
 
     @Override
-    public void setExtraRapanPortion(Rapan rapan) {
+    public void addExtraRapanPortion(Rapan rapan) {
         this.extraRapanPortion = rapan;
     }
 
     @Override
-    public void setExtraRapanasSauce(Sauce sauce) {
+    public void addExtraRapanasSauce(Sauce sauce) {
         this.extraRapanasSauce = sauce;
     }
 
     @Override
-    public void setExtraRapanasVegetable(Vegetable vegetable) {
+    public void addExtraRapanasVegetable(Vegetable vegetable) {
         this.extraRapanasVegetable = vegetable;
     }
 
     @Override
-    public void setBeverage(Beverage beverage) {
+    public void addBeverage(Beverage beverage) {
         this.beverage = beverage;
     }
 
     @Override
-    public void setSalad(Salad salad) {
+    public void addSalad(Salad salad) {
         this.salad = salad;
     }
 
     @Override
-    public void setExtraSaladSauce(Sauce sauce) {
+    public void addExtraSaladSauce(Sauce sauce) {
         this.extraSalasSauce = sauce;
     }
 
     @Override
-    public void setExtraSaladVegetable(Vegetable vegetable) {
+    public void addExtraSaladVegetable(Vegetable vegetable) {
         this.extraSaladVegetable = vegetable;
     }
 
     @Override
-    public void setExtraSaladChicken(Chicken chicken) {
+    public void addExtraSaladChicken(Chicken chicken) {
         this.extraSaladChicken = chicken;
     }
 
     @Override
-    public void setExtraSaladSalmon(Salmon salmon) {
+    public void addExtraSaladSalmon(Salmon salmon) {
         this.extraSaladSalmon = salmon;
     }
 

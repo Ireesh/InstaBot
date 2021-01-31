@@ -1,15 +1,15 @@
 import Entity.*;
 
 public interface Builder {
-    void setRapanas(Rapanas rapanas);
-    void setExtraRapanPortion(Rapan rapan);
-    void setExtraRapanasSauce(Sauce sauce);
-    void setExtraRapanasVegetable(Vegetable vegetable);
-    void setBeverage(Beverage beverage);
-    void setSalad(Salad salad);
-    void setExtraSaladSauce(Sauce sauce);
-    void setExtraSaladVegetable(Vegetable vegetable);
-    void setExtraSaladChicken(Chicken chicken);
-    void setExtraSaladSalmon(Salmon salmon);
+    void addRapanas(Rapanas rapanas);
+    void addExtraRapanPortion(Rapan rapan);
+    void addExtraRapanasSauce(Sauce sauce);
+    void addExtraRapanasVegetable(Vegetable vegetable);
+    void addBeverage(Beverage beverage);
+    void addSalad(Salad salad);
+    void addExtraSaladSauce(Sauce sauce);
+    void addExtraSaladVegetable(Vegetable vegetable);
+    void addExtraSaladChicken(Chicken chicken);
+    void addExtraSaladSalmon(Salmon salmon);
 }
 
