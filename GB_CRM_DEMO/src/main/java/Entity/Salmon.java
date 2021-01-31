@@ -2,7 +2,7 @@ package Entity;
 
 import java.math.BigDecimal;
 
-public class Salmon {
+public class Salmon implements Product{
     private Double cost = 5.5;
     private double weight = 40.0;
 

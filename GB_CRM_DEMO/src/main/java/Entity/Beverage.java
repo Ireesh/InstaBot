@@ -2,7 +2,7 @@ package Entity;
 
 import java.math.BigDecimal;
 
-public class Beverage {
+public class Beverage implements Product{
     private Double cost;
     private BeverageType beverageType;
 

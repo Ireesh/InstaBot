@@ -2,7 +2,7 @@ package Entity;
 
 import java.math.BigDecimal;
 
-public class Rapanas {
+public class Rapanas implements Product{
     private Double cost;
     private RapanasType rapanasType;
 

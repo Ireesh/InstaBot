@@ -1,5 +1,8 @@
 package Entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Order {
     private Rapanas rapanas;
     private Rapan extraRapanPortion;
@@ -72,6 +75,22 @@ public class Order {
     public  Salmon getExtraSaladSalmon() {
         return extraSaladSalmon;
     }
+
+    public List<Product> getAllProducts(){
+        List<Product> products = new ArrayList<>();
+        products.add(this.getBeverage());
+        products.add(this.getRapanas());
+        products.add(this.getSalad());
+        products.add(this.getExtraRapanasSauce());
+        products.add(this.getExtraRapanasVegetable());
+        products.add(this.getExtraSaladVegetable());
+        products.add(this.getExtraSalasSauce());
+        products.add(this.getExtraRapanPortion());
+        products.add(this.getExtraSaladChicken());
+        products.add(this.getExtraSaladSalmon());
+        return products;
+    }
+
 
     @Override
     public String toString() {
