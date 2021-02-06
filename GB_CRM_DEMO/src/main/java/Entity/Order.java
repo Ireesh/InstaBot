@@ -1,6 +1,7 @@
 package Entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Order {
@@ -14,6 +15,9 @@ public class Order {
     private Vegetable extraSaladVegetable;
     private Chicken extraSaladChicken;
     private Salmon extraSaladSalmon;
+    private Date dateDelivery;
+    private int timeDelivery; //Example (10:34 = 1034)
+    private Address address;
 
     public Order(Rapanas rapanas, Rapan extraRapanPortion, Sauce extraRapanasSauce,
                  Vegetable extraRapanasVegetable, Beverage beverage, Salad salad,
@@ -74,6 +78,30 @@ public class Order {
 
     public  Salmon getExtraSaladSalmon() {
         return extraSaladSalmon;
+    }
+
+    public Date getDateDelivery() {
+        return dateDelivery;
+    }
+
+    public void setDateDelivery(Date dateDelivery) {
+        this.dateDelivery = dateDelivery;
+    }
+
+    public int getTimeDelivery() {
+        return timeDelivery;
+    }
+
+    public void setTimeDelivery(int timeDelivery) {
+        this.timeDelivery = timeDelivery;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public List<Product> getAllProducts(){

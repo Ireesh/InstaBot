@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class Salad implements Product{
     private Double cost;
     private SaladType saladType;
+    private double amount;
 
     public Salad(SaladType saladType) {
         this.saladType = saladType;
@@ -23,6 +24,8 @@ public class Salad implements Product{
     public SaladType getSaladType() {
         return saladType;
     }
+
+    public Double getAmount() { return amount; }
 
     @Override
     public String toString() {

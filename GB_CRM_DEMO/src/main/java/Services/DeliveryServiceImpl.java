@@ -1,12 +1,16 @@
 package Services;
 
-import Entity.Bill;
 import Entity.Order;
+import Repositories.DeliveryRepository;
 
-import java.util.Date;
+public class DeliveryServiceImpl extends Middleware implements DeliveryService{
+   DeliveryRepository deliveryRepository = new DeliveryRepository();
 
-public class DeliveryServiceImpl {
-    public void sendOrderForPreparation(Bill bill, Date date, String address){
-        System.out.println("\nDelivery response: \n" + date.toString() + "\n" + address + "\n" + bill.print());
+    @Override
+    public boolean check(Order order) {
+        for (String street : deliveryRepository.getAvailableStreets()) {
+            if (street == order.getAddress().getStreet()) { return checkNext(order); }
+        }
+        return false;
     }
 }

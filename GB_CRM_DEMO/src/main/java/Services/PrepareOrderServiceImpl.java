@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class PrepareOrderServiceImpl {
+public class PrepareOrderServiceImpl implements PrepareOrderService{
     private DeliveryServiceImpl deliveryService;
     private WaiterServiceImpl waiterService;
     private KitchenServiceImpl kitchenService;
@@ -22,7 +22,7 @@ public class PrepareOrderServiceImpl {
     }
 
     public void sendOrderForAll(Order order, Bill bill, Date date, String address) {
-        if (productService.check(order.getAllProducts())) {
+        if (productService.checkAvailability(order.getAllProducts())) {
             deliveryService.sendOrderForPreparation(bill, date, address);
             waiterService.sendOrderForPreparation(bill);
             kitchenService.sendOrderForPreparation(order.toString());

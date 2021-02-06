@@ -1,12 +1,23 @@
 package Services;
 
+import Entity.Order;
 import Entity.Product;
+import Repositories.ProductRepository;
 
 import java.util.List;
 
-public class ProductServiceImpl {
-    public boolean check(List<Product> products) {
-        //connect to ProductRepository and check product exist or not (if all are exist -> true, if doesn't -> false)
-        return true;
+public class ProductServiceImpl extends Middleware implements ProductService {
+    ProductRepository productRepository;
+
+    public void ProductServiceImpl (ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
+    @Override
+    public boolean check(Order order) {
+        for (Product p : order.getAllProducts()) {
+            if (productRepository.findProductByName(p.getName()) == null) { return false; }
+        }
+        return checkNext(order);
     }
 }

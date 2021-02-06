@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class Rapan implements Product{
     private Double cost = 5d;
     private double weight = 50.0;
+    private double amount;
 
     public Double getCost() {
         return cost;
@@ -21,6 +22,8 @@ public class Rapan implements Product{
     public void setWeight(double weight) {
         this.weight = weight;
     }
+
+    public Double getAmount() { return amount; }
 
     @Override
     public String toString() {

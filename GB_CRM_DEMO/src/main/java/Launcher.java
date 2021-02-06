@@ -1,9 +1,17 @@
 import Entity.*;
-import Services.PrepareOrderServiceImpl;
+import Services.*;
 
 import java.util.Date;
 
 public class Launcher {
+    //init Chain of responsibility
+    private  static AcceptOrderForDelivery acceptOrderForDelivery = new AcceptOrderForDelivery();
+    private static void init() {
+        Middleware middleware = new WaiterServiceImpl();
+        middleware.linkWith(new DeliveryServiceImpl()).linkWith(new ProductServiceImpl());
+        acceptOrderForDelivery.setMiddleware(middleware);
+    }
+
     public static void main(String[] args) {
         PrepareOrderServiceImpl prepareOrderService = new PrepareOrderServiceImpl();
         //set parameters for user
@@ -33,7 +41,10 @@ public class Launcher {
         orderBillBuilder.addExtraSaladSalmon(salmon);
         orderBillBuilder.addBeverage(beverage);
 
-        //send order info for departments
-        prepareOrderService.sendOrderForAll(orderBuilder.getResult(), orderBillBuilder.getResult(), date, user.getAddress());
+        init();
+        boolean success;
+        do {
+            success = acceptOrderForDelivery.acceptOrder(orderBuilder.getResult());
+        } while (!success);
     }
 }

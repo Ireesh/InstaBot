@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class Sauce implements Product{
     private Double cost;
     private SauceType sauceType;
+    private double amount;
 
     public Sauce(SauceType sauceType) {
         this.sauceType = sauceType;
@@ -23,6 +24,8 @@ public class Sauce implements Product{
     public SauceType getSauceType() {
         return sauceType;
     }
+
+    public Double getAmount() { return amount; }
 
     @Override
     public String toString() {

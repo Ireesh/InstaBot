@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class Rapanas implements Product{
     private Double cost;
     private RapanasType rapanasType;
+    private double amount;
 
     public Rapanas(RapanasType rapanasType) {
         this.rapanasType = rapanasType;
@@ -25,6 +26,8 @@ public class Rapanas implements Product{
     public RapanasType getRapanasType() {
         return rapanasType;
     }
+
+    public Double getAmount() { return amount; }
 
     @Override
     public String toString() {

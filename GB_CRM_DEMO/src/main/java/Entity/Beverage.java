@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class Beverage implements Product{
     private Double cost;
     private BeverageType beverageType;
+    private double amount;
 
     public Beverage(BeverageType beverageType) {
         this.beverageType = beverageType;
@@ -25,6 +26,8 @@ public class Beverage implements Product{
     public BeverageType getBeverageType() {
         return beverageType;
     }
+
+    public Double getAmount() { return amount; }
 
     @Override
     public String toString() {
