@@ -2,6 +2,8 @@ package Services;
 
 import Entity.Order;
 
+import java.sql.SQLException;
+
 public class AcceptOrderForDelivery {
     private Middleware middleware;
 
@@ -9,7 +11,7 @@ public class AcceptOrderForDelivery {
         this.middleware = middleware;
     }
 
-    public boolean acceptOrder(Order order) {
+    public boolean acceptOrder(Order order) throws SQLException {
         if (middleware.check(order)) {
             System.out.println("Your order was accepted!");
             return true;

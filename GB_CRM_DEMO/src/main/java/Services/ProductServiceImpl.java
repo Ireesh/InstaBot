@@ -4,6 +4,7 @@ import Entity.Order;
 import Entity.Product;
 import Repositories.ProductRepository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class ProductServiceImpl extends Middleware implements ProductService {
@@ -14,10 +15,11 @@ public class ProductServiceImpl extends Middleware implements ProductService {
     }
 
     @Override
-    public boolean check(Order order) {
+    public boolean check(Order order) throws SQLException {
         for (Product p : order.getAllProducts()) {
-            if (productRepository.findProductByName(p.getName()) == null) { return false; }
+            if (productRepository.findByType(p.getName()) == null) { return false; }
         }
         return checkNext(order);
     }
+
 }

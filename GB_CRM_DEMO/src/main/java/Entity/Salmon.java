@@ -2,28 +2,7 @@ package Entity;
 
 import java.math.BigDecimal;
 
-public class Salmon implements Product{
-    private Double cost = 5.5;
-    private double weight = 40.0;
-    private double amount;
-
-    public Double getCost() {
-        return cost;
-    }
-
-    public void setCost(Double cost) {
-        this.cost = cost;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public Double getAmount() { return amount; }
+public class Salmon extends Product{
 
     @Override
     public String toString() {

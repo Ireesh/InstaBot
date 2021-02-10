@@ -21,12 +21,5 @@ public class PrepareOrderServiceImpl implements PrepareOrderService{
         productService = new ProductServiceImpl();
     }
 
-    public void sendOrderForAll(Order order, Bill bill, Date date, String address) {
-        if (productService.checkAvailability(order.getAllProducts())) {
-            deliveryService.sendOrderForPreparation(bill, date, address);
-            waiterService.sendOrderForPreparation(bill);
-            kitchenService.sendOrderForPreparation(order.toString());
-        }
-    }
 
 }

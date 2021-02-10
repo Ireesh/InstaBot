@@ -40,43 +40,43 @@ public class Bill {
     public String print() {
         StringBuilder sb = new StringBuilder();
         if (rapanas != null) {
-            sb.append("Rapanas: " + rapanas.getRapanasType() + " = " + rapanas.getCost() + "$\n");
-            totalCost += rapanas.getCost();
+            sb.append("Rapanas: " + rapanas.getRapanasType() + " = " + rapanas.getPrice() + "$\n");
+            totalCost += rapanas.getPrice();
             if (extraRapanPortion != null) {
-                sb.append("Extra rapan: " + extraRapanPortion + "(" + extraRapanPortion.getWeight() + ") = " + extraRapanPortion.getCost() + "$\n");
-                totalCost += extraRapanPortion.getCost();
+                sb.append("Extra rapan: " + extraRapanPortion + "(" + extraRapanPortion.getWeight() + ") = " + extraRapanPortion.getPrice() + "$\n");
+                totalCost += extraRapanPortion.getPrice();
             }
             if (extraRapanasSauce != null) {
-                sb.append("Extra sauce: " + extraRapanasSauce.getSauceType() + " = " + extraRapanasSauce.getCost() + "$\n");
-                totalCost += extraRapanasSauce.getCost();
+                sb.append("Extra sauce: " + extraRapanasSauce.getSauceType() + " = " + extraRapanasSauce.getPrice() + "$\n");
+                totalCost += extraRapanasSauce.getPrice();
             }
             if (extraRapanasVegetable != null) {
-                sb.append("Extra vegetable: " + extraRapanasVegetable + " = " + extraRapanasVegetable.getCost() + "$\n");
-                totalCost += extraRapanasVegetable.getCost();
+                sb.append("Extra vegetable: " + extraRapanasVegetable + " = " + extraRapanasVegetable.getPrice() + "$\n");
+                totalCost += extraRapanasVegetable.getPrice();
             }
         }
         if (beverage != null) {
-            sb.append("Beverage: " + beverage.getBeverageType() + " = " + beverage.getCost() + "$\n");
-            totalCost += beverage.getCost();
+            sb.append("Beverage: " + beverage.getBeverageType() + " = " + beverage.getPrice() + "$\n");
+            totalCost += beverage.getPrice();
         }
         if (salad != null) {
-            sb.append("Salad: " + salad.getSaladType() + " = " + salad.getCost() + "$\n");
-            totalCost += salad.getCost();
+            sb.append("Salad: " + salad.getSaladType() + " = " + salad.getPrice() + "$\n");
+            totalCost += salad.getPrice();
             if (extraSaladSauce != null) {
-                sb.append("Extra sauce: " + extraSaladSauce.getSauceType() + " = " + extraSaladSauce.getCost() + "$\n");
-                totalCost += extraSaladSauce.getCost();
+                sb.append("Extra sauce: " + extraSaladSauce.getSauceType() + " = " + extraSaladSauce.getPrice() + "$\n");
+                totalCost += extraSaladSauce.getPrice();
             }
             if (extraSaladVegetable != null) {
-                sb.append("Extra vegetable: " + extraSaladVegetable + " = " + extraSaladVegetable.getCost() + "$\n");
-                totalCost += extraSaladVegetable.getCost();
+                sb.append("Extra vegetable: " + extraSaladVegetable + " = " + extraSaladVegetable.getPrice() + "$\n");
+                totalCost += extraSaladVegetable.getPrice();
             }
             if (extraSaladChicken != null) {
-                sb.append("Extra chicken: " + extraSaladChicken + "(" + extraSaladChicken.getWeight() + ")" + " = " + extraSaladChicken.getCost() + "$\n");
-                totalCost += extraSaladChicken.getCost();
+                sb.append("Extra chicken: " + extraSaladChicken + "(" + extraSaladChicken.getWeight() + ")" + " = " + extraSaladChicken.getPrice() + "$\n");
+                totalCost += extraSaladChicken.getPrice();
             }
             if (extraSaladSalmon != null) {
-                sb.append("Extra salmon: " + extraSaladSalmon + "(" + extraSaladSalmon.getWeight() + ")" + " = " + extraSaladSalmon.getCost() + "$\n");
-                totalCost += extraSaladSalmon.getCost();
+                sb.append("Extra salmon: " + extraSaladSalmon + "(" + extraSaladSalmon.getWeight() + ")" + " = " + extraSaladSalmon.getPrice() + "$\n");
+                totalCost += extraSaladSalmon.getPrice();
             }
         }
         sb.append("Total cost: " + totalCost);
