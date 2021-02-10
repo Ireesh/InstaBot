@@ -3,6 +3,7 @@ package Repositories;
 import Entity.*;
 
 import java.sql.*;
+import java.util.IdentityHashMap;
 import java.util.Locale;
 
 public class ProductRepository {
@@ -21,21 +22,29 @@ public class ProductRepository {
     }
 
     public Product findByType(String productType) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement(
-                "SELECT * FROM products WHERE `type` = ?");
-        statement.setString(1, productType);
-        try (ResultSet result = statement.executeQuery()) {
-            while (result.next()) {
-                Product product = new Product();
-                product.setId(result.getLong(1));
-                product.setName(result.getString(2));
-                product.setPrice(result.getDouble(3));
-                product.setAmount(result.getDouble(4));
-                product.setWeight(result.getDouble(5));
-                return product;
+        Product product = new Product();
+        product = IdentityMap.getProduct(productType);
+        if (product == null) {
+            PreparedStatement statement = connection.prepareStatement(
+                    "SELECT * FROM products WHERE `type` = ?");
+            statement.setString(1, productType);
+            try (ResultSet result = statement.executeQuery()) {
+                while (result.next()) {
+                    product = new Product();
+                    product.setId(result.getLong(1));
+                    product.setName(result.getString(2));
+                    product.setPrice(result.getDouble(3));
+                    product.setAmount(result.getDouble(4));
+                    product.setWeight(result.getDouble(5));
+                    product.setType(result.getString(6));
+                    IdentityMap.addProduct(product);
+                    return product;
+                }
             }
+            return null;
+        } else {
+            return product;
         }
-        return null;
     }
 
 }

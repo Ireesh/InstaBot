@@ -40,14 +40,14 @@ public class Bill {
     public String print() {
         StringBuilder sb = new StringBuilder();
         if (rapanas != null) {
-            sb.append("Rapanas: " + rapanas.getRapanasType() + " = " + rapanas.getPrice() + "$\n");
+            sb.append("Rapanas: " + rapanas.getType() + " = " + rapanas.getPrice() + "$\n");
             totalCost += rapanas.getPrice();
             if (extraRapanPortion != null) {
                 sb.append("Extra rapan: " + extraRapanPortion + "(" + extraRapanPortion.getWeight() + ") = " + extraRapanPortion.getPrice() + "$\n");
                 totalCost += extraRapanPortion.getPrice();
             }
             if (extraRapanasSauce != null) {
-                sb.append("Extra sauce: " + extraRapanasSauce.getSauceType() + " = " + extraRapanasSauce.getPrice() + "$\n");
+                sb.append("Extra sauce: " + extraRapanasSauce.getType() + " = " + extraRapanasSauce.getPrice() + "$\n");
                 totalCost += extraRapanasSauce.getPrice();
             }
             if (extraRapanasVegetable != null) {
@@ -56,14 +56,14 @@ public class Bill {
             }
         }
         if (beverage != null) {
-            sb.append("Beverage: " + beverage.getBeverageType() + " = " + beverage.getPrice() + "$\n");
+            sb.append("Beverage: " + beverage.getType() + " = " + beverage.getPrice() + "$\n");
             totalCost += beverage.getPrice();
         }
         if (salad != null) {
-            sb.append("Salad: " + salad.getSaladType() + " = " + salad.getPrice() + "$\n");
+            sb.append("Salad: " + salad.getType() + " = " + salad.getPrice() + "$\n");
             totalCost += salad.getPrice();
             if (extraSaladSauce != null) {
-                sb.append("Extra sauce: " + extraSaladSauce.getSauceType() + " = " + extraSaladSauce.getPrice() + "$\n");
+                sb.append("Extra sauce: " + extraSaladSauce.getType() + " = " + extraSaladSauce.getPrice() + "$\n");
                 totalCost += extraSaladSauce.getPrice();
             }
             if (extraSaladVegetable != null) {

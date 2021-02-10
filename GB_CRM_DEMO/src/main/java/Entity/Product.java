@@ -55,4 +55,9 @@ public class Product {
     public void setType(String type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return getType();
+    }
 }

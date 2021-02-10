@@ -1,10 +1,12 @@
 import Entity.*;
+import Repositories.IdentityMap;
 import Repositories.ProductRepository;
 import Services.*;
 import org.w3c.dom.ls.LSOutput;
 
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.Locale;
 
 public class Launcher {
 
@@ -16,40 +18,28 @@ public class Launcher {
         acceptOrderForDelivery.setMiddleware(middleware);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
+        ProductRepository productRepository = new ProductRepository();
         //set parameters for user
         User user = new User();
         Date date = new Date();
         date.getTime();
         //set parameters for order
-        Rapanas rapanas = new Rapanas(RapanasType.ORIGINAL);
-        Vegetable vegetable = new Vegetable(VegetableType.ONION);
-        Salmon salmon = new Salmon();
-        Salad salad = new Salad(SaladType.CEASAR);
-        Beverage beverage = new Beverage(BeverageType.COLA);
-
+        Rapanas rapanas = new Rapanas(productRepository.findByType("original"));
+        Vegetable onion = new Vegetable(productRepository.findByType("onion"));
         //create order
         OrderBuilder orderBuilder = new OrderBuilder();
         OrderBillBuilder orderBillBuilder = new OrderBillBuilder();
 
         orderBuilder.addRapanas(rapanas);
-        orderBuilder.addExtraRapanasVegetable(vegetable);
-        orderBuilder.addSalad(salad);
-        orderBuilder.addExtraSaladSalmon(salmon);
-        orderBuilder.addBeverage(beverage);
+        orderBuilder.addExtraRapanasVegetable(onion);
 
         orderBillBuilder.addRapanas(rapanas);
-        orderBillBuilder.addExtraRapanasVegetable(vegetable);
-        orderBillBuilder.addSalad(salad);
-        orderBillBuilder.addExtraSaladSalmon(salmon);
-        orderBillBuilder.addBeverage(beverage);
+        orderBillBuilder.addExtraRapanasVegetable(onion);
 
-        ProductRepository productRepository = new ProductRepository();
-        try {
-            System.out.println(productRepository.findByType("chicken").getName());
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        System.out.println(orderBillBuilder.getResult().print());
+        System.out.println(orderBuilder.getResult());
+        System.out.println(IdentityMap.getProduct("original".toUpperCase()));
 
     }
 }
