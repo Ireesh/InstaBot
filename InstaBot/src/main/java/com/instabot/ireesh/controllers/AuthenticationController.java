@@ -6,8 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class AuthenticationController {
@@ -25,9 +26,10 @@ public class AuthenticationController {
     }
 
     @PostMapping("/login")
-    public String singUpNewUser(@Validated String username, String password) {
+    public String singUpNewUser(@Validated HttpServletRequest request, String username, String password) throws ServletException {
         if (userService.createNewUser(username, password)) {
-            return "redirect:/login";
+            request.login(username, password);
+            return "redirect:/bot";
         } else {
             return "redirect:/error";
         }
