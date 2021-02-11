@@ -1,5 +1,7 @@
 package com.instabot.ireesh.services;
 
+import com.instabot.ireesh.entities.Role;
+import com.instabot.ireesh.entities.Status;
 import com.instabot.ireesh.entities.User;
 import com.instabot.ireesh.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +39,19 @@ public class UserServiceImpl implements UserService{
 
         return new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPassword(),
                 roles);
+    }
+
+    public boolean createNewUser(String email, String password) {
+        if (userRepository.findUserByLogin(email) == null) {
+            User user = new User();
+            user.setLogin(email);
+            user.setPassword(bCryptPasswordEncoder.encode(password));
+            user.setRole(Role.USER);
+            user.setStatus(Status.ACTIVE);
+            userRepository.save(user);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
