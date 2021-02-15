@@ -3,6 +3,7 @@ package com.instabot.ireesh.controllers;
 import com.instabot.ireesh.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,12 +27,12 @@ public class AuthenticationController {
     }
 
     @PostMapping("/login")
-    public String singUpNewUser(@Validated HttpServletRequest request, String username, String password) throws ServletException {
+    public String singUpNewUser(Model model, @Validated HttpServletRequest request, String username, String password) throws ServletException {
         if (userService.createNewUser(username, password)) {
             request.login(username, password);
-            return "redirect:/bot";
+            return "bot";
         } else {
-            return "redirect:/error";
+            return "login";
         }
     }
 }

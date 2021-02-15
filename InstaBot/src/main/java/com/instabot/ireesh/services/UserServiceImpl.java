@@ -41,17 +41,23 @@ public class UserServiceImpl implements UserService{
                 roles);
     }
 
+    public User findUserByLogin(String email) {
+        return userRepository.findUserByLogin(email);
+    }
+
     public boolean createNewUser(String email, String password) {
-        if (userRepository.findUserByLogin(email) == null) {
-            User user = new User();
-            user.setLogin(email);
-            user.setPassword(bCryptPasswordEncoder.encode(password));
-            user.setRole(Role.USER);
-            user.setStatus(Status.ACTIVE);
-            userRepository.save(user);
-            return true;
-        } else {
-            return false;
-        }
+        if (email != null && password != null) {
+            if (userRepository.findUserByLogin(email) == null) {
+                User user = new User();
+                user.setLogin(email);
+                user.setPassword(bCryptPasswordEncoder.encode(password));
+                user.setRole(Role.USER);
+                user.setStatus(Status.ACTIVE);
+                userRepository.save(user);
+                return true;
+            } else {
+                return false;
+            }
+        } return false;
     }
 }
