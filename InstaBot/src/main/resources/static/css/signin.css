@@ -45,3 +45,10 @@ body {
   margin-top: 30px;
   text-align: center;
 }
+
+.error {
+    color: red !important;
+}
+.error-text {
+    border:1px solid red !important;
+}
